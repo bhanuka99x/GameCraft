@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+footer {
+  width: 100%;
+  top: 100px;
+  position: relative;
+  padding: 20px;
+  background: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  line-height: 40px;
+}
+.ficon {
+  text-align: center;
+  letter-spacing: 20px;
+}
+.ficon a i {
+  font-size: 40px;
+  color: white;
+}
+.ftabs {
+  text-align: center;
+}
+.ftabs a {
+  color: white;
+  margin: 20px;
+}
+.flast {
+  text-align: center;
+  color: white;
+}
