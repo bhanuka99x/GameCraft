@@ -8,7 +8,6 @@
   --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   --border: 0.1rem solid var(--black);
 }
-
 * {
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -18,6 +17,9 @@
   border: none;
   text-decoration: none;
   text-transform: capitalize;
+}
+body{
+   background: rgb(27, 27, 34);
 }
 html {
   font-size: 62.5%;
@@ -31,7 +33,7 @@ html {
   margin-top: 1rem;
   font-size: 1.7rem;
   padding: 1rem 3rem;
-  background: var(--black);
+  background: var(--green);
   color: var(--white);
   text-align: center;
 }
@@ -53,6 +55,13 @@ html {
   max-width: 1200px;
   padding: 2rem;
   margin: 0 auto;
+}
+.admin-games-form-container .centered{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+   
 }
 .admin-games-form-container form {
   max-width: 50rem;
@@ -77,15 +86,70 @@ html {
   background: var(--white);
   text-transform: none;
 }
-
-@media (max-width: 991px) {
-  html {
-    font-size: 55%;
-  }
+.game-display{
+   margin:2rem 0;
+}
+.game-display .game-display-table{
+   width: 100%;
+   text-align: center;
 }
 
-@media (max-width: 450px) {
-  html {
-    font-size: 50%;
-  }
+.game-display .game-display-table thead{
+   background: var(--bg-color);
+}
+
+.game-display .game-display-table th{
+   padding:1rem;
+   font-size: 2rem;
+}
+
+
+.game-display .game-display-table td{
+   padding:1rem;
+   font-size: 2rem;
+   border-bottom: var(--border);
+}
+
+.game-display .game-display-table .btn:first-child{
+   margin-top: 0;
+}
+
+.game-display .game-display-table .btn:last-child{
+   background: crimson;
+}
+
+.game-display .game-display-table .btn:last-child:hover{
+   background: var(--black);
+}
+
+
+
+
+
+@media (max-width:991px){
+
+   html{
+      font-size: 55%;
+   }
+
+}
+
+@media (max-width:768px){
+
+   .game-display{
+      overflow-y:scroll;
+   }
+
+   .game-display .game-display-table{
+      width: 80rem;
+   }
+
+}
+
+@media (max-width:450px){
+
+   html{
+      font-size: 50%;
+   }
+
 }
