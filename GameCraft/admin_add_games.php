@@ -9,7 +9,8 @@ if (isset($_POST['add_game'])) {
     $game_image_tmp_name = $_FILES['game_image']['tmp_name'];
     $game_image_folder = 'uploaded_img/' . $game_image;
 
-    if (empty($game_name) || empty($game_price) || empty($game_description) || empty($game_image)) {
+    if (empty($game_name) || empty($game_price) || empty($game_description) || empty($game_image)) 
+    {
         $message[] = 'Please fill out all fields';
     } else {
         $insert = "INSERT INTO product(gname, gprice, gdescription, gimage) VALUES('$game_name', '$game_price', '$game_description', '$game_image')";
