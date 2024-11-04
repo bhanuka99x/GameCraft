@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="register-container">
-        <h2>Register </h2>
+        <h1>Register </h1>
         <form action="register.php" method="post">
             <label for="user name">Username: </lable>
             <input type="text" id="username" name="username" required auto complete="off">
