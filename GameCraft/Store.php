@@ -43,7 +43,7 @@ if (mysqli_num_rows($select_products) > 0) {
             <input type="hidden" name="game_name" value="<?php echo $fetch_product['gname']; ?>">
             <input type="hidden" name="game_price" value="<?php echo $fetch_product['gprice']; ?>">
             <input type="hidden" name="game_image" value="<?php echo $fetch_product['gimage']; ?>">
-            <input type="submit" class="games-btn" value="Add to Cart" name="add_to_cart">
+            <input type="submit" class="games-btn" value="Buy Now" name="add_to_cart">
             <input type="submit" class="games-btn" value="Add to Cart" name="add_to_cart">
         </div>
     </div>
