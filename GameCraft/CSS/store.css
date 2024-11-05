@@ -14,7 +14,7 @@ body {
   left: 0;
   height: 100vh;
   width: 100%;
-  background: rgb(255, 51, 6);
+  background: rgb(27, 27, 34);
 }
 html {
   font-size: 62.5%;
@@ -52,6 +52,23 @@ main {
 .games-btn{
    font-family: 'Poppins', sans-serif;
 }
+.btn{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+
+ 
+}
+.btn .cart-btn{
+  margin-top: 20px;
+  width: 100px;
+}
+.btn .buynow-btn{
+ 
+}
 .games:hover img {
   scale: 1.1;
 }
@@ -64,20 +81,7 @@ main {
   margin: 1rem;
   transition: all 0.3s;
 }
-.games a:link,
-.games a:visited {
-  color: black;
-  border: none;
-  font-weight: 600;
-  display: inline-block;
-  text-decoration: none;
-  background-color: #b90e0a;
-  padding: 10px 40px;
-  border-radius: 1rem;
-  margin-top: 1rem;
-  font-size: 15px;
-  transition: all 0.2s;
-}
+
 .games a:hover {
   transform: scale(1.1);
 }
