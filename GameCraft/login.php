@@ -1,36 +1,28 @@
 <?php
 include_once 'connection.php';
 
-session_start();
-
-//email and password
-$user=["users@gmail.com"=>"password123"];
-$admin=["admin@gmail.com" => "password123"];
-
-$error="";
-
-// check form is submitted & remove whitespace
+// check form is submitted 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $email=trim($_POST["email"]);
-    $password=trim($_POST["password"]);
+    $username=($_POST["username"]);
+    $password=($_POST["password"]);
 
-    //verify email & password
-    if(isset($user[$email])&& $user[$email]===$password){
+    $sql= "select * from users where username='".$username."' AND password='".$pa."'";
 
-        $_SESSION["user"] = $email; // Store email in session
-        $_SESSION["role"] = $users[$email]["role"];// Store user role in session
-        
-        //redirect user_management page
-        if($_SESSION["role"]=== $admin){
-        header("Location:user_management.php");
-        }else{
-        //Redirect home page
-        header("Location:home.php");
+    $result =mysqli_query($conn,$sql);
+
+    $row =mysqli_fetch_array($result);
+
+    if ($row["usertype"]=="user"){
+        header("location:home.php");
     }
-    exit();
-}else{
-    $error="Inavalid email or password";
+    elseif ($row["usertype"]=="admin"){
+        header("location:user_management.php");
+    }
+    else{
+        echo "username or password incorrect";
+    }
 }
+    
 ?>
 
 <!DOCTYPE html>
@@ -44,9 +36,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 <body>
     <div class="login-container">
         <h1>Login</h1>
-        <form action="home.php" method="POST">
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" required autocomplete="off">
+        <form action="login.php" method="POST">
+            <label for="username">User name:</label>
+            <input type="text" id="username" name="username" required autocomplete="off">
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required autocomplete="off">
