@@ -1,29 +1,37 @@
 <?php
 include_once 'connection.php';
 
-// check form is submitted 
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $username=($_POST["username"]);
-    $password=($_POST["password"]);
+// check if the form is submitted 
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
-    $sql= "select * from users where username='".$username."' AND password='".$pa."'";
-
-    $result =mysqli_query($conn,$sql);
-
-    $row =mysqli_fetch_array($result);
-
-    if ($row["usertype"]=="user"){
-        header("location:home.php");
-    }
-    elseif ($row["usertype"]=="admin"){
-        header("location:user_management.php");
-    }
-    else{
-        echo "username or password incorrect";
-    }
-}
+    // Using prepared statements to prevent SQL injection
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
     
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_array();
+
+        if ($row["usertype"] == "user") {
+            header("Location: home.php");
+            exit();
+        } elseif ($row["usertype"] == "admin") {
+            header("Location: user_management.php");
+            exit();
+        }
+    } else {
+        echo "Username or password is incorrect";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
