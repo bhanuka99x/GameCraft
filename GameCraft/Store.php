@@ -1,92 +1,62 @@
 <?php
 include_once 'connection.php';
 
-$sql="SELECT*FROM product";
-$all_games = $conn->query($sql);
+if (isset($_POST['add_to_cart'])) {
+    $game_name = $_POST['game_name'];
+    $game_price = $_POST['game_price'];
+    $game_image = $_POST['game_image'];
+
+    // Fix the column name in the SELECT statement
+    $select_cart = mysqli_query($conn, "SELECT * FROM cart WHERE cname = '$game_name'");
+
+    if (mysqli_num_rows($select_cart) > 0) {
+        $message[] = 'Product already added to cart';
+    } else {
+        $insert_product = mysqli_query($conn, "INSERT INTO cart (cname, cprice, cimage) VALUES ('$game_name', '$game_price', '$game_image')");
+        $message[] = 'Product added to cart successfully';
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <link rel="stylesheet" href="./CSS/store.css">
     <script defer src="./JS/store.js"></script>
 </head>
 <body>
-
-<!--Side navbar-->
-  <nav>
-    <button type="button" id="toggle-btn">
-      <i class="fa fa-bars"></i>
-    </button>
-    <span>GameCraft</span>
-    <ul class="sidebar-menu">
-      <li><a href="#"><i class='bx bx-home-alt' ></i>Home</a></li>
-      <li><a href="#"><i class='bx bx-store-alt' ></i>Store</a></li>
-      <li><a href="#"><i class='bx bx-library' ></i>Library</a></li>
-      <li><a href="#"><i class='bx bx-joystick' ></i>Cart</a></li>
-      <li id="bgModeBtn"><a href="#"><i id="bgModeIcon" class='bx bx-sun'></i>Mode</a></li>
-    </ul>
-  </nav>
-
-  <!--top navbar-->
- 
-
-<div id="topnav-bar">   
-  <div class="logo1">
-  
-
- </div> 
-  
-
-  <div class="topnav-search">
-       <input type="text" id="site-search" name="search" placeholder="Search.." value ="<?php if(isset($_GET['search'])){echo $GET_['search'];} ?>">
-       <button type="submit" id="btnsearch">Search</button>
-  </div>
-
-  
-     <div class="topnav-user">
-       <button id="b3"><i class='bx bx-user'></i></button>
-     </div>
-</div>
-
 <main>
 <?php
-   while($row = mysqli_fetch_assoc($all_games)){
+$select_products = mysqli_query($conn, "SELECT * FROM product");
+if (mysqli_num_rows($select_products) > 0) {
+    while ($fetch_product = mysqli_fetch_assoc($select_products)) {
 ?>
-
-
- <div class="games">
-	<img src="./Images/<?php echo $row["gimage"]; ?>" alt="Game Image">
-
-	    <div class="games-info">
-		    <h4 class="games-title"><?php echo $row["gname"];?></h4>
-			    <p class="games-price"><b><?php echo $row["gprice"];?></b></p>
-				    <a class="games-btn" href="https://www.youtube.com/" target="_blank">Buy Now</a>
-                    <a class="games-btn" href="https://www.youtube.com/" target="_blank">Add to Cart</a>
-
-	    </div>
- </div>
-
-
+<form action="" method="post">
+    <div class="games">
+        <img src="./Images/<?php echo $fetch_product['gimage']; ?>" alt="Game Image">
+        <div class="games-info">
+            <h4 class="games-title"><?php echo $fetch_product['gname']; ?></h4>
+            <p class="games-price"><b><?php echo $fetch_product['gprice']; ?></b></p>
+            <input type="hidden" name="game_name" value="<?php echo $fetch_product['gname']; ?>">
+            <input type="hidden" name="game_price" value="<?php echo $fetch_product['gprice']; ?>">
+            <input type="hidden" name="game_image" value="<?php echo $fetch_product['gimage']; ?>">
+          <div class="btn"> 
+            <input type="submit" class="buynow-btn" value="Buy Now" name="buy_now">
+            <input type="submit" class="cart-btn" value="Add to Cart" name="add_to_cart">
+            </div> 
+        </div>
+    </div>
+</form>
 <?php
-
-   }
+    }
+}
 ?>
 </main>
 
-
-
-
-
-
-
-
-
-<?php
-include_once 'footer.php';
-?>
+<?php include_once 'second-nav.php'; ?>
+<?php include_once 'footer.php'; ?>
 </body>
 </html>
