@@ -9,6 +9,21 @@
 </head>
 <body>
 
+    <header>
+        
+            <span>GameCraft</span>
+            <a href="">Home</a>
+            <a href="store.php">Store</a>
+            <a href="">Library</a>
+            <a href="">Cart</a>
+            <div class="btns">
+                <button class="l-btn">Login</button>
+                <button class="s-btn">Sign up</button>
+            </div>
+        
+    </header>
+
+
 <!-- carousel -->
     <div class="carousel">
         <!-- list item -->
@@ -136,9 +151,7 @@
     <script src="./JS/home.js"></script>
 
     <?php
-    include_once 'second-nav.php';
     include_once 'footer.php';
-
     ?>
 </body>
 </html>
