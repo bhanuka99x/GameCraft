@@ -16,10 +16,10 @@ $carouselItems = $result->fetch_all(MYSQLI_ASSOC);
 
 <header>
     <span>GameCraft</span>
-    <a href="">Home</a>
+    <a href="home.php">Home</a>
     <a href="store.php">Store</a>
-    <a href="">Library</a>
-    <a href="">Cart</a>
+    <a href="Library.php">Library</a>
+    <a href="cart.php">Cart</a>
     <div class="btns">
         <button class="l-btn">Login</button>
         <button class="s-btn">Sign up</button>
@@ -35,9 +35,9 @@ $carouselItems = $result->fetch_all(MYSQLI_ASSOC);
                 <img src="./Images/<?php echo $item['himage']; ?>" alt="">
                 <div class="content">
                     <div class="topic"><?php echo $item['hname']; ?></div>
-                    <div class="des"><?php echo $item['hdes']; ?></div>
+                    <p class="des"><?php echo $item['hdes']; ?></p>
                     <div class="buttons">
-                        <button>Learn More</button>
+                        <button><a href="store.php">Shop Now</a></button>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,6 @@ $carouselItems = $result->fetch_all(MYSQLI_ASSOC);
                 <img src="./Images/<?php echo $item['himage']; ?>" alt="<?php echo $item['hdes']; ?>">
                 <div class="content">
                     <div class="title"><?php echo $item['hname']; ?></div>
-                    <div class="description"><?php echo substr($item['hdes'], 0, 50) . '...'; ?></div>
                 </div>
             </div>
         <?php endforeach; ?>

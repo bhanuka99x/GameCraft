@@ -15,7 +15,7 @@ a {
   text-decoration: none;
 }
 header {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.8);
   width: 100%;
   height: 60px;
   margin: auto;
@@ -30,9 +30,11 @@ header a {
   font-size: 15px;
 }
 header span {
+   color: white;
   font-size: 30px;
   margin-left: 40px;
   font-weight: 600;
+  letter-spacing: 2px;
 }
 header .btns {
   position: relative;
@@ -92,7 +94,6 @@ header .btns .l-btn {
   font-weight: bold;
   letter-spacing: 10px;
 }
-.carousel .list .item .title,
 .carousel .list .item .topic {
   font-size: 5em;
   font-weight: bold;
@@ -100,13 +101,19 @@ header .btns .l-btn {
 }
 .carousel .list .item .topic {
   color: #f1683a;
+  letter-spacing: 1px;
 }
+.carousel .list .item .des {
+  position: relative;
+  margin-top: 20px;
+  letter-spacing: 1px;
+} 
 .carousel .list .item .buttons {
   display: grid;
   grid-template-columns: repeat(2, 130px);
   grid-template-rows: 40px;
   gap: 5px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .carousel .list .item .buttons button {
   border: none;
@@ -115,6 +122,10 @@ header .btns .l-btn {
   font-family: Poppins;
   font-weight: 500;
 }
+.carousel .list .item .buttons button a {
+  color:black;
+}
+  
 .carousel .list .item .buttons button:nth-child(2) {
   background-color: transparent;
   border: 1px solid #fff;
