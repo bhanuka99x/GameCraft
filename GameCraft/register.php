@@ -1,34 +1,28 @@
 <?php
 include_once 'connection.php';
 
-//form handling
-if (isset($_POST['register'])){
-    $username= ($_POST['username']);
-    $email= ($_POST['Email']);
-    $password= ($_POST['password']);
-    $confirm_password=($_POST['confirm_password']);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
 
-    // validation
-    if ($password !== $confirm_password) {
-        echo "Passwords do not match.";
-    } else {
-        // Hash the password
+    if ($password === $confirm_password) {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-       
-        //insert database
-        $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$hashed_password')";
-        if ($conn->query($sql) === TRUE) {
+
+        $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $username, $email,$hashed_password);
+
+        if ($stmt->execute()) {
             echo "Registration successful!";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: " . $stmt->error;
         }
+    } else {
+        echo "Passwords do not match.";
     }
 }
-
-$conn->close();
 ?>
-
-    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +40,7 @@ $conn->close();
             <input type="text" id="username" name="username" required autocomplete="off">
 
             <label for="eamil">Email: </lable>
-            <input type="text" id="Email" name="Email" required autocomplete="off">
+            <input type="text" id="email" name="email" required autocomplete="off">
 
             <label for="password">Password: </lable>
             <input type="password" id="password" name="password" required autocomplete="off">

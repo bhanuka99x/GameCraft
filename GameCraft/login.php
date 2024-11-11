@@ -1,53 +1,38 @@
 <?php
 include_once 'connection.php';
  
+session_start();
 
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
 
-    // Using prepared statements with MySQLi
-    $sql = "SELECT * FROM users WHERE username = ?";
-    $stmt = $conn->prepare($sql);
-    
-    if ($stmt === false) {
-        // Handle error in preparing the statement
-        die('MySQL prepare error: ' . $conn->error);
-    }
 
-    // Bind the parameter to the prepared statement
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+ 
+
     $stmt->bind_param("s", $username);
     $stmt->execute();
-
-    // Get the result
     $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
+    $user = $result->fetch_assoc();
 
-    if ($row) {
-        $pwdHashed = $row['password'];
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['role'] = $user['role'];
 
-        // Verify the password
-        if (password_verify($password, $pwdHashed)) {
-            if ($row["usertype"] == "user") {
-                header("Location: home.php");
-                exit();
-            } elseif ($row["usertype"] == "admin") {
-                header("Location: user_management.php");
-                exit();
-            }
+        
+
+        if ($user['role'] === 'admin') {
+            header("Location: user_management.php");
         } else {
-            header("Location: ../../../../zulo/pages/login.php?error=password");
-            exit();
+            header("Location: index.php");
         }
+        exit;
     } else {
-        // Handle case where no row is found
-        header("Location: ../../../../zulo/pages/login.php?error=invalid");
-        exit();
+        echo "Invalid credentials.";
     }
-
-    $stmt->close();
-    $conn->close();
 }
 ?>
 
@@ -74,13 +59,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
 
         <div class="register-link">
-            <p>Don't have an account? <a href="register.php">Register here</a></p>
-        </div> 
+        <p>Already have an account? <a href="register.php">Register here</a></p>
     </div>
-
+    </div>
 </body>
 </html>
-   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
