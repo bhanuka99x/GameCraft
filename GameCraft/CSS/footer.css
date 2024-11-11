@@ -13,10 +13,9 @@
 
 footer {
   width: 100%;
-  top: 100px;
   position: relative;
-  padding: 20px;
-  background: black;
+  padding: 30px;
+  background: rgb(27, 27, 34);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

@@ -56,7 +56,6 @@ if (mysqli_num_rows($select_products) > 0) {
 ?>
 </main>
 
-<?php include_once 'second-nav.php'; ?>
 <?php include_once 'footer.php'; ?>
 </body>
 </html>
