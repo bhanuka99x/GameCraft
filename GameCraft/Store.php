@@ -23,11 +23,24 @@ if (isset($_POST['add_to_cart'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GameCraft</title>
     <link rel="stylesheet" href="./CSS/store.css">
     <script defer src="./JS/store.js"></script>
 </head>
 <body>
+
+<header>
+    <span>GameCraft</span>
+    <a href="home.php">Home</a>
+    <a href="store.php">Store</a>
+    <a href="Library.php">Library</a>
+    <a href="cart.php">Cart</a>
+    <div class="btns">
+    </div>
+</header>
+
+
+
 <main>
 <?php
 $select_products = mysqli_query($conn, "SELECT * FROM product");
@@ -44,8 +57,8 @@ if (mysqli_num_rows($select_products) > 0) {
             <input type="hidden" name="game_price" value="<?php echo $fetch_product['gprice']; ?>">
             <input type="hidden" name="game_image" value="<?php echo $fetch_product['gimage']; ?>">
           <div class="btn"> 
-            <input type="submit" class="buynow-btn" value="Buy Now" name="buy_now">
-            <input type="submit" class="cart-btn" value="Add to Cart" name="add_to_cart">
+            <button><input type="submit" class="buynow-btn" value="Buy Now" name="buy_now"></button>
+            <button><input type="submit" class="cart-btn" value="Add to Cart" name="add_to_cart"></button>
             </div> 
         </div>
     </div>

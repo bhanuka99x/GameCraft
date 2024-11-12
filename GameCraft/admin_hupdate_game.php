@@ -19,7 +19,7 @@ if (isset($_POST['update_game'])) {
         $upload = mysqli_query($conn, $update);
         if ($upload) {
             move_uploaded_file($game_image_tmp_name, $game_image_folder);
-            header('location:admin_hadd_game.php');
+
             
         } else {
             $message[] = 'Could not add the game';

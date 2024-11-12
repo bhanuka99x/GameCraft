@@ -12,10 +12,11 @@
 }
 
 footer {
+  top: 50px;
   width: 100%;
   position: relative;
   padding: 30px;
-  background: rgb(27, 27, 34);
+  background: transparent;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
