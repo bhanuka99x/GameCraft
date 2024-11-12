@@ -30,13 +30,20 @@ if (isset($_POST['add_to_cart'])) {
 <body>
 
 <header>
-    <span>GameCraft</span>
+    <h3>GameCraft</h3>
     <a href="home.php">Home</a>
     <a href="store.php">Store</a>
     <a href="Library.php">Library</a>
-    <a href="cart.php">Cart</a>
+    <?php
+      
+      $select_rows = mysqli_query($conn, "SELECT * FROM cart") or die('query failed');
+      $row_count = mysqli_num_rows($select_rows);
+
+      ?>
+    <a href="cart.php">Cart<span><?php echo $row_count; ?></span></a>
     <div class="btns">
     </div>
+
 </header>
 
 

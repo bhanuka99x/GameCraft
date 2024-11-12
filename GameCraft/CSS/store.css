@@ -38,7 +38,7 @@ header a {
   margin-left: 50px;
   font-size: 15px;
 }
-header span {
+header h3 {
    color: white;
   font-size: 30px;
   margin-left: 40px;
@@ -67,6 +67,12 @@ header .btns .l-btn {
   font-weight: 500;
   width: 70px;
   height: 30px;
+}
+header span {
+  position: relative;
+  left: 7px;
+  top: -8px;
+  font-size: 12px;
 }
 main {
   margin: 30px auto;
