@@ -1,9 +1,7 @@
 <?php
 include_once 'connection.php';
- 
+
 session_start();
-
-
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
@@ -24,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         
 
-        if ($user['role'] === 'admin') {
+        if ($user['role'] == 'admin') {
             header("Location: user_management.php");
         } else {
             header("Location: index.php");

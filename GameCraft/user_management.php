@@ -17,7 +17,7 @@ if (isset($_GET['delete'])) {
 $result = $conn->query("SELECT * FROM users");
 $user_count = $result->num_rows;
 ?>
-
+<link rel="stylesheet" href="./CSS/user_manage.css">
 <h1>Admin Panel</h1>
 <p>Total Users: <?php echo $user_count; ?></p>
 
@@ -36,10 +36,12 @@ $user_count = $result->num_rows;
         <td><?php echo $row['email']; ?></td>
         <td><?php echo $row['role']; ?></td>
         <td>
-            <a href="edit_user.php?id=<?php echo $row['id']; ?>">Edit</a>
-            <a href="admin.php?delete=<?php echo $row['id']; ?>">Delete</a>
+            
+            <button> <a href="edit_user.php?id=<?php echo $row['id']; ?>">Edit</a></button>
+          <button><a href="admin.php?delete=<?php echo $row['id']; ?>">Delete</a></button>
+    
         </td>
     </tr>
     <?php endwhile; ?>
 </table>
-<a href="logout.php">Logout</a>
+<button><a href="logout.php">Logout</a></button>
