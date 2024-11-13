@@ -5,7 +5,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #000000;
+    background-color: #e9e1e1;
+   background-image: url('lego 2k.jpg');
 }
 
 .register-container {

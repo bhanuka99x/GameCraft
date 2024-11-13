@@ -21,10 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $conn->prepare("UPDATE users SET username=?, email=?, role=? WHERE id=?");
     $stmt->bind_param("sssi", $username, $email, $role, $id);
     $stmt->execute();
-    header("Location: admin.php");
+    header("Location: user_management.php");
     exit;
 }
 ?>
+<link rel="stylesheet" href="./CSS/edit_user.css">
 
 <form method="POST" action="">
     <input type="text" name="username" value="<?php echo $user['username']; ?>" required>

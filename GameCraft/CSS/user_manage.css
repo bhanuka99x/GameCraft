@@ -55,33 +55,54 @@ a {
     color: #0015ff;
     text-decoration: none;
     font-weight: bold;
-    
-}
-.btn{
-    background-color: #ea1010;
 }
 
 
-
-a:hover {
-    text-decoration: underline;
-}
-
-
-.logout-btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    background-color: #ff4c4c;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
     text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
 }
 
-.logout-btn:hover {
-    background-color: #e04343;
+
+a[href*="edit_user.php"] {
+    background-color: #f1c40f; 
+}
+
+a[href*="edit_user.php"]:hover {
+    background-color: #f39c12; 
+}
+
+
+a[href*="delete.php"] {
+    background-color: #e74c3c; 
+}
+
+a[href*="delete.php"]:hover {
+    background-color: #c0392b; 
+}
+
+
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+a[href="logout.php"] {
+    background-color: #3498db; 
+}
+
+a[href="logout.php"]:hover {
+    background-color: #2980b9; 
 }
