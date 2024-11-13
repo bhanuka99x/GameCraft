@@ -1,94 +1,106 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+/* payment.css */
 
-:root{
-   --green:#27ae60;
-   --black:#333;
-   --white:#fff;
-   --bg-color:#eee;
-   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
-   --border:.1rem solid var(--black);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-*{
-   font-family: 'Poppins', sans-serif;
-   margin:0; padding:0;
-   box-sizing: border-box;
-   outline: none; border:none;
-   text-decoration: none;
-   text-transform: capitalize;
-}
-html{
-  font-size:62.5%;
-  overflow-x: hidden;
-}
-.btn{
-   display: block;
-   width: 100%;
-   cursor: pointer;
-   border-radius: .5rem;
-   margin-top: 1rem;
-   font-size: 1.7rem;
-   padding:1rem 3rem;
-   background: var(--green);
-   color:var(--white);
-   text-align: center;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
 }
 
-.btn:hover{
-   background: var(--black);
-   color:white;
-}
-.message{
-   display: block;
-   background: var(--bg-color);
-   padding:1.5rem 1rem;
-   font-size: 2rem;
-   color:var(--black);
-   margin-bottom: 2rem;
-   text-align: center;
-}
-.container{
-  max-width: 1200px;
-   padding:2rem;
-   margin:0 auto;
-}
-.admin-games-form-container form {
-   max-width: 50rem;
-   margin:0 auto;
-   padding:2rem;
-   border-radius: .5rem;
-   background: var(--bg-color);
-}
-.admin-games-form-container form h3{
-  text-transform: uppercase;
-   color:var(--black);
-   margin-bottom: 1rem;
-   text-align: center;
-   font-size: 2.5rem;
-}
-.admin-games-form-container form .box {
-  width: 100%;
-   border-radius: .5rem;
-   padding:1.2rem 1.5rem;
-   font-size: 1.7rem;
-   margin:1rem 0;
-   background: var(--white);
-   text-transform: none;
-}
-@media (max-width:991px){
-
-   html{
-      font-size: 55%;
-   }
-
+.container {
+    width: 60%;
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+form .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 30px;
+}
 
+.col {
+    width: 100%;
+}
 
-@media (max-width:450px){
+.title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
 
-   html{
-      font-size: 50%;
-   }
+.inputBox {
+    margin-bottom: 15px;
+}
 
+.inputBox span {
+    display: block;
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.inputBox input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #555;
+    transition: border-color 0.3s;
+}
+
+.inputBox input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.flex {
+    display: flex;
+    gap: 15px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+img {
+    width: 100px;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .row {
+        flex-direction: column;
+    }
 }
