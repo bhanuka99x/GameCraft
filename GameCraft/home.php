@@ -15,16 +15,25 @@ $carouselItems = $result->fetch_all(MYSQLI_ASSOC);
 <body>
 
 <header>
-    <span>GameCraft</span>
-    <a href="home.php">Home</a>
-    <a href="store.php">Store</a>
-    <a href="Library.php">Library</a>
-    <a href="cart.php">Cart</a>
-    <div class="btns">
-        <button class="l-btn">Login</button>
-        <button class="s-btn">Sign up</button>
-    </div>
-</header>
+        <nav class="nav-left">
+            <a href="#" class="logo">Gamecraft</a>
+            <a href="home.php" class="nav-item">Home</a>
+            <a href="store.php" class="nav-item">Store</a>
+            <a href="library.php" class="nav-item">Library</a>
+            <?php
+      
+      $select_rows = mysqli_query($conn, "SELECT * FROM cart") or die('query failed');
+      $row_count = mysqli_num_rows($select_rows);
+
+      ?>
+        <a href="cart.php" class="nav-item">Cart<span><?php echo $row_count; ?></span></a>
+        </nav>
+        <nav class="nav-right">
+            <a href="#" class="l-btn">Login</a>
+            <a href="#" class="r-btn">Register</a>
+        </nav>
+    </header>
+
 
 <!-- carousel -->
 <div class="carousel">
