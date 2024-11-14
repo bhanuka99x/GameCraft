@@ -44,6 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="./CSS/login.css">
 </head>
 <body>
+<div class="container">
+    <div class="image-section"></div>
+    <div class="login-container">
+    
     <div class="login-container">
         <h1>Login</h1>
         <form action="login.php" method="POST">
@@ -60,6 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <p>Already have an account? <a href="register.php">Register here</a></p>
     </div>
     </div>
+</div>
+</div>
+
 </body>
 </html>
 
