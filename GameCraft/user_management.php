@@ -1,3 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    <link rel="stylesheet" href="./CSS/umnav.css">
+</head>
+<body>
+   
+
+    <nav class="navbar">
+    <h2>Admin panel</h2>
+        <ul>
+            <li><a href="user_management.php">Reg&Log</a></li>
+            <li><a href="#about">Home</a></li>
+            <li><a href="#services">Store</a></li>
+            
+            
+            
+        </ul>
+    </nav>
+
+</body>
+</html>
+
+
+
+
 <?php
 require 'connection.php';
 session_start();
@@ -21,7 +50,7 @@ $user_count = $result->num_rows;
 
 
 <link rel="stylesheet" href="./CSS/user_manage.css">
-<h1>Admin Panel</h1>
+
 <p>Total Users: <?php echo $user_count; ?></p>
 
 <table>
