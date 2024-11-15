@@ -1,0 +1,112 @@
+.admin-container {
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 900px;
+}
+
+
+h2 {
+    text-align: left;
+    color: #f1f1f6;
+    font-size: 2rem;
+    margin-bottom: 5px;
+    position:fixed ;
+    padding-top: 10px;
+    
+}
+
+
+p {
+    text-align: center;
+    color: #000000;
+    font-size: 2em;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+th {
+    background-color: #0d00ff;
+    color: #fff;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+a {
+    color: #0015ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+a[href*="edit_user.php"] {
+    background-color: #f1c40f; 
+}
+
+a[href*="edit_user.php"]:hover {
+    background-color: #f39c12; 
+}
+
+
+a[href*="delete.php"] {
+    background-color: #e74c3c; 
+}
+
+a[href*="delete.php"]:hover {
+    background-color: #c0392b; 
+}
+
+
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+a[href="logout.php"] {
+    background-color: #3498db; 
+}
+
+a[href="logout.php"]:hover {
+    background-color: #2980b9; 
+}
