@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   text-transform: capitalize;
   text-decoration: none;
   outline: none;
@@ -15,7 +15,6 @@ body {
 }
 html {
   font-size: 62.5%;
-  overflow-x: hidden;
 }
 header {
   display: flex;
@@ -25,8 +24,7 @@ header {
   color: white;
 }
 
-.nav-left,
-.nav-right {
+.nav-left {
   display: flex;
   align-items: center;
 }
@@ -47,7 +45,12 @@ header {
 .nav-right a:hover {
   scale: 1.1;
 }
-
+.nav-left .nav-item span {
+  font-size: 10px;
+  position: relative;
+  left: 5px;
+  top: -10px;
+}
 .logo {
   font-size: 30px;
   font-weight: bold;
@@ -136,19 +139,19 @@ header {
   font-weight: 200;
 }
 
-.shopping-cart table input[type='number'] {
+.shopping-cart table input[type="number"] {
   padding: 1rem 2rem;
   font-size: 2rem;
   width: 10rem;
 }
 
-.shopping-cart table input[type='submit'] {
+.shopping-cart table input[type="submit"] {
   padding: 0.5rem 1.5rem;
   cursor: pointer;
   font-size: 2rem;
 }
 
-.shopping-cart table input[type='submit']:hover {
+.shopping-cart table input[type="submit"]:hover {
 }
 
 .shopping-cart table .table-bottom {

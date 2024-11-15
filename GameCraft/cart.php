@@ -1,5 +1,4 @@
 <?php
-
 @include 'connection.php';
 
 if(isset($_GET['remove'])){
@@ -18,6 +17,7 @@ if(isset($_GET['delete_all'])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,8 +25,9 @@ if(isset($_GET['delete_all'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Document</title>
 </head>
+
 <body>
-<header>
+    <header>
         <nav class="nav-left">
             <a href="#" class="logo">Gamecraft</a>
             <a href="home.php" class="nav-item">Home</a>
@@ -38,31 +39,31 @@ if(isset($_GET['delete_all'])){
       $row_count = mysqli_num_rows($select_rows);
 
       ?>
-        <a href="cart.php" class="nav-item">Cart<span><?php echo $row_count; ?></span></a>
+            <a href="cart.php" class="nav-item">Cart<span><?php echo $row_count; ?></span></a>
         </nav>
         <nav class="nav-right">
-            <a href="#" class="l-btn">Login</a>
-            <a href="#" class="r-btn">Register</a>
+            <a href="#" class="l-btn"></a>
+            <a href="#" class="r-btn"></a>
         </nav>
     </header>
-<div class="container">
+    <div class="container">
 
-<section class="shopping-cart">
+        <section class="shopping-cart">
 
-   <h1 class="heading">Your Shopping Cart</h1>
+            <h1 class="heading">Your Shopping Cart</h1>
 
-   <table>
+            <table>
 
-      <thead>
-         <th>image</th>
-         <th>name</th>
-         <th>price</th>
-         <th class="action">action</th>
-      </thead>
+                <thead>
+                    <th>image</th>
+                    <th>name</th>
+                    <th>price</th>
+                    <th class="action">action</th>
+                </thead>
 
-      <tbody>
+                <tbody>
 
-         <?php 
+                    <?php 
          $select_cart = mysqli_query($conn, "SELECT * FROM cart");
          $grand_total = 0;
          if(mysqli_num_rows($select_cart) > 0){
@@ -70,36 +71,41 @@ if(isset($_GET['delete_all'])){
                $grand_total +=(float) $fetch_cart['cprice']; // Add the price to the grand total
          ?>
 
-         <tr>
-            <td><img src="uploaded_img/<?php echo $fetch_cart['cimage']; ?>" height="100" alt=""></td>
-            <td><?php echo $fetch_cart['cname']; ?></td>
-            <td>$<?php echo $fetch_cart['cprice']; ?></td>
-            <td><a href="cart.php?remove=<?php echo $fetch_cart['id']; ?>" onclick="return confirm('remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> remove</a></td>
-         </tr>
-         <?php
+                    <tr>
+                        <td><img src="uploaded_img/<?php echo $fetch_cart['cimage']; ?>" height="100" alt=""></td>
+                        <td><?php echo $fetch_cart['cname']; ?></td>
+                        <td>$<?php echo $fetch_cart['cprice']; ?></td>
+                        <td><a href="cart.php?remove=<?php echo $fetch_cart['id']; ?>"
+                                onclick="return confirm('remove item from cart?')" class="delete-btn"> <i
+                                    class="fas fa-trash"></i> remove</a></td>
+                    </tr>
+                    <?php
             };
          };
          ?>
-         <tr class="table-bottom">
-            <td colspan="2" >grand total</td>
-            <td>$<?php echo $grand_total; ?>/-</td>
-            <td><a href="cart.php?delete_all" onclick="return confirm('are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> delete all </a></td>
-         </tr>
+                    <tr class="table-bottom">
+                        <td colspan="2">grand total</td>
+                        <td>$<?php echo $grand_total; ?>/-</td>
+                        <td><a href="cart.php?delete_all"
+                                onclick="return confirm('are you sure you want to delete all?');" class="delete-btn"> <i
+                                    class="fas fa-trash"></i> delete all </a></td>
+                    </tr>
 
-      </tbody>
+                </tbody>
 
-   </table>
-   
-   <div class="checkout-btn">
-      <a href="store.php" class="option-btn" style="margin-top: 0;">continue Shopping</a>
-      <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">procced to checkout</a>
-   </div>
-</section>
+            </table>
 
-</div>
-    
-<?php
+            <div class="checkout-btn">
+                <a href="store.php" class="option-btn" style="margin-top: 0;">continue Shopping</a>
+                <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">procced to checkout</a>
+            </div>
+        </section>
+
+    </div>
+
+    <?php
 include_once 'footer.php';
 ?>
 </body>
+
 </html>
