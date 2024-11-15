@@ -1,68 +1,93 @@
-/* CSS for order_confirmation.php */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
 
-/* General styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgb(27, 27, 34);
 }
-
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
 header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+ position: fixed;
+width: 100%;
+top: 0px;
+z-index: +1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
 }
 
-.nav-left, .nav-right {
-    display: flex;
-    align-items: center;
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
 }
 
-.nav-left .logo {
-    font-size: 24px;
-    font-weight: bold;
-    margin-right: 20px;
+.nav-left a,
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin-right: 20px;
+  transition: 0.2s;
+}
+.nav-left .nav-item {
+  font-size: 15px;
+}
+.nav-left .nav-item span {
+  font-size: 10px;
+  position: relative;
+  left: 5px;
+  top: -10px;
 }
 
-.nav-item {
-    color: white;
-    margin-right: 15px;
-    text-decoration: none;
+.nav-left .nav-item:hover,
+.nav-right a:hover {
+  scale: 1.1;
 }
 
-.nav-item:hover {
-    text-decoration: underline;
+.logo {
+  font-size: 30px;
+  font-weight: bold;
 }
 
-.l-btn, .r-btn {
-    color: white;
-    background-color: #007bff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    margin-left: 10px;
-}
-
-.l-btn:hover, .r-btn:hover {
-    background-color: #0056b3;
+.l-btn,
+.r-btn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 15px;
 }
 
 main {
-    max-width: 800px;
+    position: relative;
+    top: 80px;
+    max-width: 700px;
     margin: 20px auto;
     padding: 20px;
-    background-color: white;
+    background: rgb(27, 27, 34);
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 h1 {
-    color: #333;
+    color: white;
     font-size: 24px;
     margin-bottom: 20px;
 }
@@ -76,26 +101,24 @@ h1 {
 }
 
 .games img {
-    max-width: 100%;
+    max-width: 60%;
     height: auto;
     border-radius: 5px;
     margin-bottom: 10px;
 }
 
 .games-info {
-    background-color: #fff;
+    background: rgb(27, 27, 34);
     padding: 20px;
-    border: 1px solid #ddd;
     border-radius: 5px;
     width: 100%;
     max-width: 400px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .games-title {
-    font-size: 18px;
+    font-size: 25px;
     margin: 10px 0;
-    color: #333;
+    color:white;
 }
 
 .games-price {
@@ -109,9 +132,8 @@ h1 {
     max-width: 400px;
     margin: 20px auto;
     padding: 20px;
-    border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background: rgb(27, 27, 34);
     text-align: left;
 }
 
@@ -119,7 +141,7 @@ h1 {
     display: block;
     font-size: 14px;
     margin-bottom: 5px;
-    color: #333;
+    color:white;
 }
 
 .payment-info input[type="text"],
@@ -133,15 +155,16 @@ h1 {
 }
 
 .payment-info input[type="submit"] {
-    background-color: #4CAF50;
+    background-color: #133e87;
     color: white;
     border: none;
     cursor: pointer;
     font-size: 16px;
+    transition: 0.3s;
 }
 
 .payment-info input[type="submit"]:hover {
-    background-color: #45a049;
+    scale: 1.1;
 }
 
 .payment-info input::placeholder {
