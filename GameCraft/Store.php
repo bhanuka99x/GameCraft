@@ -16,6 +16,22 @@ if (isset($_POST['add_to_cart'])) {
         $message[] = 'Product added to cart successfully';
     }
 }
+
+if (isset($_POST['add_whitelist'])) {
+    $game_name = $_POST['game_name'];
+    $game_price = $_POST['game_price'];
+    $game_image = $_POST['game_image'];
+
+    // Fix the column name in the SELECT statement
+    $select_whitelist = mysqli_query($conn, "SELECT * FROM whitelist WHERE wname = '$game_name'");
+
+    if (mysqli_num_rows($select_whitelist) > 0) {
+        $message[] = 'Product already added to whitelist';
+    } else {
+        $insert_whitelist = mysqli_query($conn, "INSERT INTO  whitelist(wname, wprice, wimage) VALUES ('$game_name', '$game_price', '$game_image')");
+        $message[] = 'Product added to whitelist successfully';
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +50,7 @@ if (isset($_POST['add_to_cart'])) {
             <a href="#" class="logo">Gamecraft</a>
             <a href="home.php" class="nav-item">Home</a>
             <a href="store.php" class="nav-item">Store</a>
+            <a href="whitelist.php" class="nav-item">whitelist</a>
             <a href="library.php" class="nav-item">Library</a>
             <?php
       
@@ -67,6 +84,8 @@ if (mysqli_num_rows($select_products) > 0) {
             <input type="hidden" name="game_price" value="<?php echo $fetch_product['gprice']; ?>">
             <input type="hidden" name="game_image" value="<?php echo $fetch_product['gimage']; ?>">
           <div class="btn"> 
+          <input type="submit" class="buynow-btn" value="add whitelist" name="add_whitelist" >
+            <br>
             <button><input type="submit" class="buynow-btn" value="Buy Now" name="buy_now"></button>
             <button><input type="submit" class="cart-btn" value="Add to Cart" name="add_to_cart"></button>
             </div> 

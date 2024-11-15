@@ -32,6 +32,7 @@ if(isset($_GET['delete_all'])){
             <a href="#" class="logo">Gamecraft</a>
             <a href="home.php" class="nav-item">Home</a>
             <a href="store.php" class="nav-item">Store</a>
+            <a href="whitelist.php" class="nav-item">whitelist</a>
             <a href="library.php" class="nav-item">Library</a>
             <?php
       
