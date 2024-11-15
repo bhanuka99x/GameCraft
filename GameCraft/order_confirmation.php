@@ -4,9 +4,6 @@ $game_name = isset($_GET['game_name']) ? $_GET['game_name'] : '';
 $game_price = isset($_GET['game_price']) ? $_GET['game_price'] : '';
 $game_image = isset($_GET['game_image']) ? $_GET['game_image'] : '';
 $message = isset($_GET['message']) ? $_GET['message'] : 'Order placed successfully!';
-// process_payment.php
-
-include_once 'connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cardholder_name = $_POST['cardholder_name'];
@@ -20,14 +17,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Here you would add logic to process the payment information
     // For example, integrating with a payment gateway API
 
-    // For demonstration, we'll just display a success message
-    echo "Payment processed successfully for $cardholder_name.<br>";
-    echo "Game: $game_name<br>";
-    echo "Price: $game_price<br>";
-    echo "<a href='store.php'>Return to Store</a>";
-}
-?>
+    // Check if the game is already in the library
+    $select_library = mysqli_query($conn, "SELECT * FROM library WHERE lname = '$game_name'");
 
+    if (mysqli_num_rows($select_library) > 0) {
+        $message = 'Product already in the library';
+    } else {
+        // Insert the game into the library table
+        $insert_library = mysqli_query($conn, "INSERT INTO library (lname, lprice, limage) VALUES ('$game_name', '$game_price', '$game_image')");
+        
+        if ($insert_library) {
+            $message = 'Payment processed successfully. Product added to your library.';
+        } else {
+            $message = 'Failed to add product to the library. Please try again.';
+        }
+    }
+
+    // Redirect to library.php with a success message
+    header("Location: library.php?message=" . urlencode($message));
+    exit();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,19 +50,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <header>
         <nav class="nav-left">
             <a href="#" class="logo">Gamecraft</a>
-            <a href="home.php" class="nav-item"></a>
-            <a href="store.php" class="nav-item"></a>
-            <a href="whitelist.php" class="nav-item"></a>
-            <a href="library.php" class="nav-item"></a>
-            <a href="cart.php" class="nav-item"></a>
+            <a href="home.php" class="nav-item">Home</a>
+            <a href="store.php" class="nav-item">Store</a>
+            <a href="whitelist.php" class="nav-item">Whitelist</a>
+            <a href="library.php" class="nav-item">Library</a>
+            <a href="cart.php" class="nav-item">Cart</a>
         </nav>
         <nav class="nav-right">
-            <a href="./user/login.php" class="l-btn"></a>
-            <a href="./user/register.php" class="r-btn"></a>
+            <a href="./user/login.php" class="l-btn">Login</a>
+            <a href="./user/register.php" class="r-btn">Register</a>
         </nav>
     </header>
     <main>
-        <h1><?php echo $message; ?></h1>
+        <h1><?php echo htmlspecialchars($message); ?></h1>
         <div class="games">
             <img src="./Images/<?php echo htmlspecialchars($game_image); ?>" alt="Game Image">
             <div class="games-info">
@@ -79,9 +88,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="hidden" name="game_price" value="<?php echo htmlspecialchars($game_price); ?>">
                 <input type="hidden" name="game_image" value="<?php echo htmlspecialchars($game_image); ?>">
                 
-                <input type="submit" value="Place Order">
+                <input type="submit" value="Submit Payment">
             </div>
         </form>
+        <a href="store.php" class="btn">Continue Shopping</a>
     </main>
     <?php include_once 'footer.php'; ?>
 </body>
