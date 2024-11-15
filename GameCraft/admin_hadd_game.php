@@ -2,19 +2,17 @@
 include_once 'connection.php';
 
 if (isset($_POST['add_game'])) {
-    $game_name = $_POST['game_name'];
-    $game_price = $_POST['game_price'];
-    $game_description = $_POST['game_description'];
+    $game_name = mysqli_real_escape_string($conn, $_POST['game_name']);
+    $game_description = mysqli_real_escape_string($conn, $_POST['game_description']);
     $game_image = $_FILES['game_image']['name'];
     $game_image_tmp_name = $_FILES['game_image']['tmp_name'];
     $game_image_folder = 'uploaded_img/' . $game_image;
 
-    if (empty($game_name) || empty($game_price) || empty($game_description) || empty($game_image)) 
-    {
+    if (empty($game_name) || empty($game_description) || empty($game_image)) {
         $message[] = 'Please fill out all fields';
     } else {
-        $insert = "INSERT INTO product(gname, gprice, gdescription, gimage) VALUES('$game_name', '$game_price', '$game_description', '$game_image')";
-        $upload = mysqli_query($conn, $insert);
+        $insert = "INSERT INTO home (hname, hdes, himage) VALUES ('$game_name', '$game_description', '$game_image')";
+        $upload = mysqli_query($conn, $insert) or die(mysqli_error($conn));
         if ($upload) {
             move_uploaded_file($game_image_tmp_name, $game_image_folder);
             $message[] = 'Game added successfully';
@@ -22,12 +20,13 @@ if (isset($_POST['add_game'])) {
             $message[] = 'Could not add the game';
         }
     }
-};
-if(isset($_GET['delete'])){
-   $id = $_GET['delete'];
-   mysqli_query($conn, "DELETE FROM product WHERE g_id = $id");
-   header('location:admin_add_games.php');
-};
+}
+
+if (isset($_GET['delete'])) {
+    $id = $_GET['delete'];
+    mysqli_query($conn, "DELETE FROM home WHERE hid = $id") or die(mysqli_error($conn));
+    header('location:admin_hadd_game.php');
+}
 
 ?>
 
@@ -46,8 +45,8 @@ if(isset($_GET['delete'])){
 
 <?php
 if (isset($message)) {
-    foreach ($message as $message) {
-        echo '<span class="message">' . $message . '</span>';
+    foreach ($message as $msg) {
+        echo '<span class="message">' . $msg . '</span>';
     }
 }
 ?>
@@ -57,7 +56,6 @@ if (isset($message)) {
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
             <h3>Add New Games</h3>
             <input type="text" name="game_name" placeholder="Enter Game Name" class="box">
-            <input type="text" name="game_price" placeholder="Enter Game Price" class="box">
             <input type="text" name="game_description" placeholder="Enter Game Description" class="box">
             <input type="file" accept="image/jpeg, image/png" name="game_image" class="box">
             <input type="submit" name="add_game" value="Add Game" class="btn">
@@ -65,34 +63,30 @@ if (isset($message)) {
     </div>
 
     <?php
-    $select = mysqli_query($conn,"SELECT * FROM product");
-
+    $select = mysqli_query($conn, "SELECT * FROM home");
     ?>
 
     <div class="game-display">
         <table class="game-display-table">
             <thead>
                 <tr>
-                    <td>image</td>
-                    <td>name</td>
-                    <td>price</td>
-                    <td>description</td>
+                    <td>Image</td>
+                    <td>Name</td>
+                    <td>Description</td>
                     <td>Action</td>
                 </tr>
             </thead>
-            <?php  while($row = mysqli_fetch_assoc($select)){?>
+            <?php while ($row = mysqli_fetch_assoc($select)) { ?>
                 <tr>
-                    <td><img src="uploaded_img/<?php echo $row['gimage'];?>" height = "100"alt=""></td>
-                    <td><?php echo $row['gname'];?></td>
-                    <td><?php echo $row['gprice'];?></td>
-                    <td><?php echo $row['gdescription'];?></td>
+                    <td><img src="uploaded_img/<?php echo $row['himage']; ?>" height="100" alt=""></td>
+                    <td><?php echo $row['hname']; ?></td>
+                    <td><?php echo $row['hdes']; ?></td>
                     <td>
-                        <a href="admin_Update_game.php?edit=<?php echo $row['g_id']; ?>" class="btn"> <i class="fas fa-edit"></i> edit </a>
-                        <a href="admin_add_games.php?delete=<?php echo $row['g_id']; ?>" class="btn"> <i class="fas fa-trash"></i> delete </a>
+                        <a href="admin_hupdate_game.php?edit=<?php echo $row['hid']; ?>" class="btn"> <i class="fas fa-edit"></i> edit </a>
+                        <a href="admin_hadd_game.php?delete=<?php echo $row['hid']; ?>" class="btn"> <i class="fas fa-trash"></i> delete </a>
                     </td>
-
                 </tr>
-                <?php };?>
+            <?php } ?>
         </table>
     </div>
 </div>
