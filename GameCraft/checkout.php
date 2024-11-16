@@ -57,9 +57,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Checkout</title>
 </head>
 <body>
-    <header>
-        <!-- Your header content -->
+<header>
+        <nav class="nav-left">
+            <a href="#" class="logo">Gamecraft</a>
+            <a href="home.php" class="nav-item"></a>
+            <a href="store.php" class="nav-item"></a>
+            <a href="whitelist.php" class="nav-item"></a>
+            <a href="library.php" class="nav-item"></a>
+            <a href="cart.php" class="nav-item"></a>
+        </nav>
+        <nav class="nav-right">
+            <a href="./user/login.php" class="l-btn"></a>
+            <a href="./user/register.php" class="r-btn"></a>
+        </nav>
     </header>
+    <div class="all-con">
     <div class="container">
         <h1 class="heading">Order Confirmation</h1>
         <table>
@@ -91,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </table>
     </div>
 
-    <div class="container">
+    <div class="form-container">
         <h1 class="heading">Enter Card Details</h1>
         <form action="" method="POST" class="payment-form">
             <div class="form-group">
@@ -112,6 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <input type="submit" value="Submit Payment">
         </form>
+    </div>
     </div>
     <?php include_once 'footer.php'; ?>
 </body>
