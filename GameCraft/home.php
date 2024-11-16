@@ -29,8 +29,8 @@ $carouselItems = $result->fetch_all(MYSQLI_ASSOC);
             <a href="cart.php" class="nav-item">Cart</a>
         </nav>
         <nav class="nav-right">
-            <a href="login.php" class="l-btn">Login</a>
-            <a href="register.php" class="r-btn">Register</a>
+            <a href="./user/login.php" class="l-btn">Login</a>
+            <a href="./user/register.php" class="r-btn">Register</a>
         </nav>
     </header>
 
