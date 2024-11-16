@@ -2,7 +2,7 @@
 include_once 'connection.php';
 
 
-if (isset($_POST['delete_whitelist'])) {
+if (isset($_POST['delete_library'])) {
     $game_name = mysqli_real_escape_string($conn, $_POST['game_name']);
 
     // Delete the item from the whitelist
@@ -63,6 +63,8 @@ if (isset($_POST['delete_whitelist'])) {
                     <input type="hidden" name="game_image" value="<?php echo $fetch_product['limage']; ?>">
                     <div class="btn">
                         <button type="submit" class="cart-btn" name="add_to_cart">Download</button>
+                        <br>
+                        <button type="submit" class="delete-btn" name="delete_library">Remove game</button>
                         <br>
                     </div> 
                 </div>
