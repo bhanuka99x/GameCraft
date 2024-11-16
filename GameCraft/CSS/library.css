@@ -50,6 +50,12 @@ header {
 .nav-right a:hover {
   scale: 1.1;
 }
+.nav-left .nav-item span {
+  font-size: 10px;
+  position: relative;
+  left: 5px;
+  top: -10px;
+}
 
 .logo {
   font-size: 30px;

@@ -36,13 +36,8 @@ if (isset($_POST['delete_whitelist'])) {
             ?>
             <a href="whitelist.php" class="nav-item">whitelist<span><?php echo $row_count; ?></a>
             <a href="library.php" class="nav-item">Library</a>
-            <?php
-      
-      $select_rows = mysqli_query($conn, "SELECT * FROM cart") or die('query failed');
-      $row_count = mysqli_num_rows($select_rows);
-
-      ?>
-        <a href="cart.php" class="nav-item">Cart<span><?php echo $row_count; ?></span></a>
+            
+        <a href="cart.php" class="nav-item">Cart</a>
         </nav>
         <nav class="nav-right">
             <a href="#" class="l-btn">Login</a>

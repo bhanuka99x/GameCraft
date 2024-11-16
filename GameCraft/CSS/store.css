@@ -95,7 +95,6 @@ main {
   font-size: 18px;
   color: white;
   position: relative;
-  top: -25px;
 }
 .games-btn {
   font-family: "Poppins", sans-serif;
@@ -131,7 +130,6 @@ form .games .btn .buynow-btn:hover,form .games .btn .cart-btn:hover {
 .games:hover {
 }
 .games img {
-  position: relative;
   top: -53px;
   height: 160px;
   transition: all 0.3s;

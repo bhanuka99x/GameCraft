@@ -91,8 +91,9 @@ header {
   padding: 1.2rem 3rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  margin-top: 1rem;
+  margin-top:50px;
   transition: 0.2s;
+  margin-left: 50px;
 }
 
 .btn:hover,

@@ -66,11 +66,7 @@ if (isset($_POST['buy_now'])) {
         <a href="store.php" class="nav-item">Store</a>
         <a href="whitelist.php" class="nav-item">Whitelist</a>
         <a href="library.php" class="nav-item">Library</a>
-        <?php
-        $select_rows = mysqli_query($conn, "SELECT * FROM cart") or die('query failed');
-        $row_count = mysqli_num_rows($select_rows);
-        ?>
-        <a href="cart.php" class="nav-item">Cart <span><?php echo $row_count; ?></span></a>
+        <a href="cart.php" class="nav-item">Cart</a>
     </nav>
     <nav class="nav-right">
         <a href="./user/login.php" class="l-btn">Login</a>
@@ -87,6 +83,7 @@ if (mysqli_num_rows($select_products) > 0) {
 <form action="" method="post">
     <div class="games">
         <img src="./Images/<?php echo htmlspecialchars($fetch_product['gimage']); ?>" alt="Game Image">
+        <br>
         <div class="games-info">
             <h4 class="games-title"><?php echo htmlspecialchars($fetch_product['gname']); ?></h4>
             <p class="games-price"><b><?php echo htmlspecialchars($fetch_product['gprice']); ?></b></p>
@@ -94,6 +91,7 @@ if (mysqli_num_rows($select_products) > 0) {
             <input type="hidden" name="game_price" value="<?php echo htmlspecialchars($fetch_product['gprice']); ?>">
             <input type="hidden" name="game_image" value="<?php echo htmlspecialchars($fetch_product['gimage']); ?>">
             <div class="btn"> 
+                <br>
                 <input type="submit" class="buynow-btn" value="Add Whitelist" name="add_whitelist">
                 <br>
                 <input type="submit" class="buynow-btn" value="Buy Now" name="buy_now">
