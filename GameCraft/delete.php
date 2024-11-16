@@ -1,16 +1,16 @@
 <?php
-require '../connection.php';
+require 'connection.php';
 session_start();
 
 if ($_SESSION['role'] !== 'admin') {
-    header("../home.php");
+    header("home.php");
     exit;
 }
 
 if (isset($_GET['id'])) {
     $id = (int) $_GET['id']; // Cast to an integer for safety
 } else {
-    header("../user_management.php"); // If no ID is set, redirect back
+    header("user_management.php"); // If no ID is set, redirect back
     exit;
 }
 
@@ -22,7 +22,7 @@ $stmt->store_result();
 
 if ($stmt->num_rows === 0) {
     // If no user is found, redirect
-    header("../user_management.php");
+    header("user_management.php");
     exit;
 }
 
@@ -79,5 +79,5 @@ a[href*="user_management.php"]:not([href*="delete"]):hover {
 
 <h1>Confirm Deletion</h1>
 <p>Are you sure you want to delete the user: <?php echo htmlspecialchars($username); ?>?</p>
-<a href=" ../user_management.php?delete=<?php echo $id; ?>">Yes</a>
-<a href="../user_management.php">No</a>
+<a href=" user_management.php?delete=<?php echo $id; ?>">Yes</a>
+<a href="user_management.php">No</a>

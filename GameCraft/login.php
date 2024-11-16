@@ -1,6 +1,6 @@
 <?php
 
-include_once '../connection.php';
+include_once 'connection.php';
 session_start();
 
 
@@ -20,13 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
 
-        $file_path = '../home.php';
-        $file_path1 ='../user_management.php';
 
         if ($user['role'] == 'admin') {
-            header("Location: $file_path1");
+            header("Location: user_managment.php");
         } else {
-            header("Location: $file_path");
+            header("Location: home.php");
         }
         exit;
     } else {
@@ -41,14 +39,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="stylesheet" href="./CSS/login.css">
     <title>Login</title>
 </head>
 <body>
 
 <header>
         <nav class="nav-left">
-            <a href="../home.php" class="logo">Gamecraft</a>
+            <a href="../" class="logo">Gamecraft</a>
             <a href="home.php" class="nav-item"></a>
             <a href="store.php" class="nav-item"></a>
             <a href="whitelist.php" class="nav-item"></a>
