@@ -1,0 +1,39 @@
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling for the navbar */
+.navbar {
+    background-color: #0e0383; /* Dark background */
+    text-align: center;
+}
+
+/* Styling for the navbar list */
+.navbar ul {
+    list-style-type: none;
+}
+
+/* Styling for the list items */
+.navbar ul li {
+    display: inline-block;
+    margin-right: 20px;
+
+}
+
+/* Styling for the links */
+.navbar ul li a {
+    text-decoration: none;
+    color: rgb(248, 243, 243);
+    font-size: 18px;
+    padding: 14px 20px;
+    display: inline-block;
+}
+
+/* Hover effect for links */
+.navbar ul li a:hover {
+    background-color: #21ec0a;
+    border-radius: 5px;
+}

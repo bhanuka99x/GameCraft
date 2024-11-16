@@ -1,23 +1,79 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
 
 * {
-  font-family: 'Poppins', sans-serif;
-  color: white;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  text-decoration: none;
   outline: none;
   border: none;
-  text-decoration: none;
-  text-transform: capitalize;
 }
 body {
+  left: 0;
+  height: 100vh;
+  width: 100%;
   background: rgb(27, 27, 34);
 }
 html {
   font-size: 62.5%;
   overflow-x: hidden;
 }
+header {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: +1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-left a,
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin-right: 20px;
+  transition: 0.2s;
+}
+.nav-left .nav-item {
+  font-size: 15px;
+}
+.nav-left .nav-item span {
+  font-size: 10px;
+  position: relative;
+  left: 5px;
+  top: -10px;
+}
+
+.nav-left .nav-item:hover,
+.nav-right a:hover {
+  scale: 1.1;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.l-btn,
+.r-btn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 15px;
+}
+
 .btn {
   display: block;
   width: 100%;
@@ -32,8 +88,8 @@ html {
 }
 
 .btn:hover {
-background-color: #608bc1;
-color: black;
+  background-color: #608bc1;
+  color: black;
 }
 .message {
   display: block;
@@ -44,10 +100,13 @@ color: black;
   text-align: center;
 }
 .container {
+  position: relative;
+  top: 100px;
   max-width: 1200px;
   padding: 2rem;
   margin: 0 auto;
 }
+
 .admin-games-form-container .centered {
   display: flex;
   align-items: center;
@@ -62,7 +121,7 @@ color: black;
 }
 .admin-games-form-container form h3 {
   text-transform: uppercase;
-  color: var(--black);
+  color: white;
   margin-bottom: 1rem;
   text-align: center;
   font-size: 2.5rem;
@@ -80,7 +139,7 @@ color: black;
   margin: 2rem 0;
 }
 .game-display table tr {
-   border: 1px solid black;
+  border: 1px solid black;
 }
 .game-display .game-display-table {
   width: 100%;
