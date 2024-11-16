@@ -22,7 +22,7 @@ if (isset($_POST['delete_whitelist'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/whitelist.css">
-    <title>Document</title>
+    <title>Whitelist</title>
 </head>
 <body>
     <header>
@@ -40,8 +40,8 @@ if (isset($_POST['delete_whitelist'])) {
         <a href="cart.php" class="nav-item">Cart</a>
         </nav>
         <nav class="nav-right">
-            <a href="#" class="l-btn">Login</a>
-            <a href="#" class="r-btn">Register</a>
+            <a href="#" class="l-btn"></a>
+            <a href="#" class="r-btn"></a>
         </nav>
     </header>
     <main>
