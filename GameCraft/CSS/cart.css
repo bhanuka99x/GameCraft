@@ -91,7 +91,7 @@ header {
   padding: 1.2rem 3rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  margin-top:50px;
+  margin-top: 50px;
   transition: 0.2s;
   margin-left: 50px;
 }
@@ -173,8 +173,6 @@ header {
   opacity: 0.5;
   user-select: none;
 }
-
-/* media queries  */
 
 @media (max-width: 1200px) {
   .shopping-cart {

@@ -45,11 +45,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <header>
         <nav class="nav-left">
             <a href="#" class="logo">Gamecraft</a>
-            <a href="home.php" class="nav-item">Home</a>
-            <a href="store.php" class="nav-item">Store</a>
-            <a href="whitelist.php" class="nav-item">Whitelist</a>
-            <a href="library.php" class="nav-item">Library</a>
-            <a href="cart.php" class="nav-item">Cart</a>
+            <a href="home.php" class="nav-item"></a>
+            <a href="store.php" class="nav-item"></a>
+            <a href="whitelist.php" class="nav-item"></a>
+            <a href="library.php" class="nav-item"></a>
+            <a href="cart.php" class="nav-item"></a>
         </nav>
         <nav class="nav-right">
             <a href="./user/login.php" class="l-btn">Login</a>
@@ -68,16 +68,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form action="process_payment.php" method="post">
             <div class="payment-info">
                 <label for="cardholder_name">Cardholder Name:</label>
-                <input type="text" id="cardholder_name" name="cardholder_name" required>
+                <input type="text" id="cardholder_name" name="cardholder_name" placeholder="Type here..." required>
                 
                 <label for="card_number">Card Number:</label>
-                <input type="text" id="card_number" name="card_number" required>
+                <input type="text" id="card_number" name="card_number" placeholder="Type here..."required>
                 
                 <label for="expiration_date">Expiration Date:</label>
                 <input type="text" id="expiration_date" name="expiration_date" placeholder="MM/YY" required>
                 
                 <label for="cvv">CVV:</label>
-                <input type="text" id="cvv" name="cvv" required>
+                <input type="text" id="cvv" name="cvv"  placeholder="Type here..." required>
                 
                 <input type="hidden" name="game_name" value="<?php echo htmlspecialchars($game_name); ?>">
                 <input type="hidden" name="game_price" value="<?php echo htmlspecialchars($game_price); ?>">
@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="submit" value="Submit Payment">
             </div>
         </form>
-        <a href="store.php" class="btn">Continue Shopping</a>
+        <a href="store.php" class="btn">Cancel order</a>
     </main>
     <?php include_once 'footer.php'; ?>
 </body>
