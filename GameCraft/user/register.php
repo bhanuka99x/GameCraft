@@ -1,5 +1,5 @@
 <?php
-include_once 'connection.php';
+include_once '../connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("sss", $username, $email,$hashed_password);
 
         if ($stmt->execute()) {
-            header("login.php");
+            header("../login.php");
         } else {
             echo "Error: " . $stmt->error;
         }
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Form</title>
-    <link rel="stylesheet" href="./CSS/register.css">
+    <link rel="stylesheet" href="../CSS/register.css">
 </head>
 
 <body>

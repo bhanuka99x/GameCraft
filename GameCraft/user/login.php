@@ -1,6 +1,6 @@
 <?php
 
-include_once 'connection.php';
+include_once '../connection.php';
 session_start();
 
 
@@ -22,9 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
         if ($user['role'] == 'admin') {
-            header("Location: user_managment.php");
+            header("Location: ../user_managment.php");
         } else {
-            header("Location: home.php");
+            header("Location: ../home.php");
         }
         exit;
     } else {
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/login.css">
+    <link rel="stylesheet" href="../CSS/login.css">
     <title>Login</title>
 </head>
 <body>
