@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   text-transform: capitalize;
   text-decoration: none;
   outline: none;
@@ -20,67 +20,121 @@ html {
   font-size: 62.5%;
   overflow-x: hidden;
 }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-left a,
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin-right: 20px;
+  transition: 0.2s;
+}
+.nav-left .nav-item {
+  font-size: 15px;
+}
+.nav-left .nav-item span {
+  font-size: 10px;
+  position: relative;
+  left: 5px;
+  top: -10px;
+}
+
+.nav-left .nav-item:hover,
+.nav-right a:hover {
+  scale: 1.1;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.l-btn,
+.r-btn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 15px;
+}
 main {
-  margin: 30px auto;
-  top: 100px;position: relative;
+  top: 20px;
+  padding: 10px;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: auto;
+  background: transparent;
 }
 .games {
   overflow: hidden;
-  background: #262626;
-  color: black;
   text-align: center;
-  width: 210px;
+  width: 220px;
   height: 400px;
-  padding: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 1.2rem;
   margin: 35px;
 }
 .games .games-title,
 .games .games-price {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   color: white;
+  position: relative;
 }
-.games-btn{
-   font-family: 'Poppins', sans-serif;
+.games-btn {
+  font-family: "Poppins", sans-serif;
 }
-.btn{
+.btn {
   display: flex;
   position: relative;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 20px;
-
- 
 }
-.btn .cart-btn{
-  margin-top: 20px;
-  width: 100px;
+form .games .btn .buynow-btn {
+  background-color: #608bc1;
+  height: 40px;
+  width: 300px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
 }
-
+form .games .btn .cart-btn {
+  background-color: #133e87;
+  height: 40px;
+  width: 300px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+form .games .btn .buynow-btn:hover,form .games .btn .cart-btn:hover {
+  scale: 1.1;
+}
 .games:hover img {
   scale: 1.1;
 }
 .games:hover {
-  box-shadow: 5px 15px 25px #b90e0a;
 }
 .games img {
-  border-radius: 10px;
+  top: -53px;
   height: 160px;
-  margin: 1rem;
   transition: all 0.3s;
 }
 
 .games a:hover {
   transform: scale(1.1);
 }
-

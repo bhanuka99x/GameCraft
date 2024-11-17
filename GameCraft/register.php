@@ -7,6 +7,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
+
+    // Initialize an error message variable
+    $error_message = "";
+
+    // Validate email format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error_message = "Invalid email format.";
+    } else {
+        // Check if email already exists in the database
+        $email_check_query = $conn->prepare("SELECT * FROM users WHERE email = ?");
+        $email_check_query->bind_param("s", $email);
+        $email_check_query->execute();
+        $result = $email_check_query->get_result();
+
+       
+        if ($result->num_rows > 0) {
+            $error_message = "Email is already registered.";
+        }
+    }
+    if(empty($error_message)){
     if ($password === $confirm_password) {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -22,6 +42,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Passwords do not match.";
     }
 }
+if (!empty($error_message)) {
+    echo "<p style='color: red;'>$error_message</p>";
+}
+}
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +57,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="./CSS/register.css">
 </head>
 <body>
+<header>
+        <nav class="nav-left">
+            <a href="../home.php" class="logo">Gamecraft</a>
+            <a href="home.php" class="nav-item"></a>
+            <a href="store.php" class="nav-item"></a>
+            <a href="whitelist.php" class="nav-item"></a>
+            <a href="library.php" class="nav-item"></a>
+            <a href="cart.php" class="nav-item"></a>
+        </nav>
+        <nav class="nav-right">
+            <a href="./user/login.php" class="l-btn"></a>
+            <a href="./user/register.php" class="r-btn"></a>
+        </nav>
+    </header>
+
 
 
 
@@ -61,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <section class="page-section">
         <div class="character-container">
         <!-- Replace with the actual image of the gaming character -->
-        <img src="./Images/8.jpg" alt="Gaming Character">
+        
     </div>
 </section>
 </body>

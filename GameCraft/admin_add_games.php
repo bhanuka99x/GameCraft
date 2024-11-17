@@ -44,6 +44,7 @@ if(isset($_GET['delete'])){
 </head>
 <body>
 
+
 <?php
 if (isset($message)) {
     foreach ($message as $message) {
@@ -51,6 +52,20 @@ if (isset($message)) {
     }
 }
 ?>
+<header>
+        <nav class="nav-left">
+            <a href="#" class="logo">Gamecraft</a>
+            <a href="home.php" class="nav-item"></a>
+            <a href="Managment.php" class="nav-item">Admin home</a>
+            <a href="whitelist.php" class="nav-item"></a>
+            <a href="library.php" class="nav-item"></a>
+            <a href="cart.php" class="nav-item"></a>
+        </nav>
+        <nav class="nav-right">
+            <a href="./user/login.php" class="l-btn"></a>
+            <a href="./user/register.php" class="r-btn"></a>
+        </nav>
+    </header>
 
 <div class="container">
     <div class="admin-games-form-container">

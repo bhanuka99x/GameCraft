@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+body {
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgb(27, 27, 34);
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+header {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: +1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-left a,
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin-right: 20px;
+  transition: 0.2s;
+}
+.nav-left .nav-item {
+  font-size: 15px;
+}
+.nav-left .nav-item span {
+  font-size: 10px;
+  position: relative;
+  left: 5px;
+  top: -10px;
+}
+
+.nav-left .nav-item:hover,
+.nav-right a:hover {
+  scale: 1.1;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.l-btn,
+.r-btn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 15px;
+}
+.container {
+  position: relative;
+  top: 100px;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+thead {
+  background-color: #608bc1;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  color: white;
+  font-size: 20px;
+}
+td {
+  font-weight: 300;
+  justify-content: center;
+}
+th {
+  color: white;
+  background-color: #608bc1;
+  text-align: center;
+}
+
+.table-bottom {
+  background: #608bc1;
+  font-weight: bold;
+}
+
+.checkout-btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.checkout-btn .btn {
+  background: #5cb85c;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.checkout-btn .btn:hover {
+  background: #4cae4c;
+}
+.form-container {
+  position: relative;
+  top: 100px;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.payment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  display: block;
+  color: white;
+  font-size: 15px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #c0dcfc;
+}
+.payment-form input[type="submit"] {
+  background-color: #133e87;
+  width: 70%;
+  position: relative;
+  align-items: center;
+  left: 50px;
+  padding: 15px;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 15px;
+  transition: 0.3s;
+}
+.payment-form input[type="submit"]:hover {
+  scale: 1.06;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: #fff;
+  margin-top: 20px;
+}

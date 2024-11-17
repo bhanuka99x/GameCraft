@@ -23,9 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
 
         if ($user['role'] == 'admin') {
-            header("Location: user_management.php");
+            header("Location: Managment.php");
         } else {
-            header("Location: index.php");
+            header("Location: home.php");
         }
         exit;
     } else {
@@ -44,10 +44,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="./CSS/login.css">
 </head>
 <body>
+
+        
+<header>
+        <nav class="nav-left">
+            <a href="../" class="logo">Gamecraft</a>
+            <a href="home.php" class="nav-item"></a>
+            <a href="store.php" class="nav-item"></a>
+            <a href="whitelist.php" class="nav-item"></a>
+            <a href="library.php" class="nav-item"></a>
+            <a href="cart.php" class="nav-item"></a>
+        </nav>
+        <nav class="nav-right">
+            <a href="./user/login.php" class="l-btn"></a>
+            <a href="./user/register.php" class="r-btn"></a>
+        </nav>
+    </header>
+
 <div class="container">
-    <div class="image-section"></div>
-    <div class="login-container">
-    
     <div class="login-container">
         <h1>Login</h1>
         <form action="login.php" method="POST">
