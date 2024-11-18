@@ -27,11 +27,11 @@ if (isset($_POST['delete_library'])) {
 <body>
     <header>
         <nav class="nav-left">
-            <a href="#" class="logo">Gamecraft</a>
+            <a href="home.php" class="logo">Gamecraft</a>
             <a href="home.php" class="nav-item">Home</a>
             <a href="store.php" class="nav-item">Store</a>
             
-            <a href="whitelist.php" class="nav-item">whitelist</a>
+            <a href="whitelist.php" class="nav-item">wishlist</a>
             <?php
                 $select_rows = mysqli_query($conn, "SELECT * FROM library") or die('query failed');
                 $row_count = mysqli_num_rows($select_rows);

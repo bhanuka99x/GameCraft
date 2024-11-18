@@ -61,16 +61,16 @@ if (isset($_POST['buy_now'])) {
 <body>
 <header>
     <nav class="nav-left">
-        <a href="#" class="logo">Gamecraft</a>
+        <a href="home.php" class="logo">Gamecraft</a>
         <a href="home.php" class="nav-item">Home</a>
         <a href="store.php" class="nav-item">Store</a>
-        <a href="whitelist.php" class="nav-item">Whitelist</a>
+        <a href="whitelist.php" class="nav-item">Wishlist</a>
         <a href="library.php" class="nav-item">Library</a>
         <a href="cart.php" class="nav-item">Cart</a>
     </nav>
     <nav class="nav-right">
-        <a href="./user/login.php" class="l-btn">Login</a>
-        <a href="./user/register.php" class="r-btn">Register</a>
+        <a href="login.php" class="l-btn">Login</a>
+        <a href="register.php" class="r-btn">Register</a>
     </nav>
 </header>
 

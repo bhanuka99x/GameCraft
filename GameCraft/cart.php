@@ -29,10 +29,10 @@ if(isset($_GET['delete_all'])){
 <body>
     <header>
         <nav class="nav-left">
-            <a href="#" class="logo">Gamecraft</a>
+            <a href="home.php" class="logo">Gamecraft</a>
             <a href="home.php" class="nav-item">Home</a>
             <a href="store.php" class="nav-item">Store</a>
-            <a href="whitelist.php" class="nav-item">Whitelist</a>
+            <a href="whitelist.php" class="nav-item">Wishlist</a>
             <a href="library.php" class="nav-item">Library</a>
             <?php
             $select_rows = mysqli_query($conn, "SELECT * FROM cart") or die('query failed');

@@ -22,7 +22,7 @@ $carouselItems = $result->fetch_all(MYSQLI_ASSOC);
             <a href="home.php" class="nav-item">Home</a>
             <a href="store.php" class="nav-item">Store</a>
 
-            <a href="whitelist.php" class="nav-item">whitelist</a>
+            <a href="whitelist.php" class="nav-item">wishlist</a>
 
 
             <a href="library.php" class="nav-item">Library</a>

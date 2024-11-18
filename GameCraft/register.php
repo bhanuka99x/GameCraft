@@ -59,7 +59,7 @@ if (!empty($error_message)) {
 <body>
 <header>
         <nav class="nav-left">
-            <a href="../home.php" class="logo">Gamecraft</a>
+            <a href="home.php" class="logo">Gamecraft</a>
             <a href="home.php" class="nav-item"></a>
             <a href="store.php" class="nav-item"></a>
             <a href="whitelist.php" class="nav-item"></a>

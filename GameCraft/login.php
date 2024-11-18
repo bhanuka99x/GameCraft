@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
 <header>
         <nav class="nav-left">
-            <a href="../" class="logo">Gamecraft</a>
+            <a href="home.php" class="logo">Gamecraft</a>
             <a href="home.php" class="nav-item"></a>
             <a href="store.php" class="nav-item"></a>
             <a href="whitelist.php" class="nav-item"></a>
@@ -56,8 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href="cart.php" class="nav-item"></a>
         </nav>
         <nav class="nav-right">
-            <a href="./user/login.php" class="l-btn"></a>
-            <a href="./user/register.php" class="r-btn"></a>
+            <a href="login.php" class="l-btn"></a>
+            <a href="register.php" class="r-btn"></a>
         </nav>
     </header>
 
